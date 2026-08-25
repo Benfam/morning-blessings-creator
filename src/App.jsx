@@ -39,8 +39,8 @@ export default function App() {
   };
 
   useEffect(() => {
-  generateMessage();
-}, [theme, generateMessage]);
+  generate();
+}, [theme]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-pink-50 p-4 sm:p-8">
