@@ -13,16 +13,34 @@ export default function App() {
   const colors = { amber: 'bg-amber-400', pink: 'bg-pink-500', purple: 'bg-purple-500', teal: 'bg-teal-500' };
   const themes = { cheerful: 'Cheerful', romantic: 'Romantic', cartoon: 'Cartoon', sketch: 'Sketch' };
 
-  const msgs = {
-    cheerful: { greeting: 'Good Morning!', primary: 'Spread joy!', secondary: 'Make today great!' },
-    romantic: { greeting: 'Good Morning Beautiful!', primary: 'You are cherished.', secondary: 'Have a wonderful day!' },
-    cartoon: { greeting: 'Happy Morning!', primary: 'Celebrate today!', secondary: 'Have fun!' },
-    sketch: { greeting: 'Good Morning!', primary: 'You are beautiful.', secondary: 'Be yourself!' },
-  };
+ const msgs = {
+  cheerful: [
+    { greeting: 'Good Morning!', primary: 'Spread joy!', secondary: 'Make today great!' },
+    { greeting: 'Rise & Shine!', primary: 'Let your light shine!', secondary: 'You got this!' },
+    { greeting: 'Hello Sunshine!', primary: 'Be awesome today!', secondary: 'Make it count!' },
+  ],
+  romantic: [
+    { greeting: 'Good Morning Beautiful!', primary: 'You are cherished.', secondary: 'Have a wonderful day!' },
+    { greeting: 'Rise with Grace!', primary: 'Love yourself today.', secondary: 'You deserve it!' },
+    { greeting: 'A Day for You!', primary: 'Be kind to yourself.', secondary: 'Bloom beautifully!' },
+  ],
+  cartoon: [
+    { greeting: 'Happy Morning!', primary: 'Celebrate today!', secondary: 'Have fun!' },
+    { greeting: 'Let\'s Party!', primary: 'Be fabulous!', secondary: 'Live it up!' },
+    { greeting: 'Good Morning!', primary: 'Spread joy!', secondary: 'Enjoy yourself!' },
+  ],
+  sketch: [
+    { greeting: 'Good Morning!', primary: 'You are beautiful.', secondary: 'Be yourself!' },
+    { greeting: 'Beautiful Morning!', primary: 'Embrace your strength.', secondary: 'Own it!' },
+    { greeting: 'Rise & Shine!', primary: 'You are enough.', secondary: 'Walk proud!' },
+  ],
+};
 
   const generate = () => {
-    setMessage(msgs[theme]);
-  };
+  const messageList = msgs[theme];
+  const randomMessage = messageList[Math.floor(Math.random() * messageList.length)];
+  setMessage(randomMessage);
+};
 
   const download = async () => {
     if (!cardRef.current) return;
