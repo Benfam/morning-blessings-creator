@@ -232,20 +232,20 @@ export default function MorningBlessingsCreator() {
     witness: '🙏 Jehovah\'s Witness',
   };
 
-  const generateMessage = () => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      const themeLib = messageLibrary[theme];
-      
-      setMessage({
-        greeting: themeLib.greetings[Math.floor(Math.random() * themeLib.greetings.length)],
-        primary: themeLib.primary[Math.floor(Math.random() * themeLib.primary.length)],
-        secondary: themeLib.secondary[Math.floor(Math.random() * themeLib.secondary.length)],
-        decorations: themeLib.decorations,
-      });
-      setIsAnimating(false);
-    }, 300);
-  };
+  const generateMessage = useCallback(() => {
+  setIsAnimating(true);
+  setTimeout(() => {
+    const themeLib = messageLibrary[theme];
+    
+    setMessage({
+      greeting: themeLib.greetings[Math.floor(Math.random() * themeLib.greetings.length)],
+      primary: themeLib.primary[Math.floor(Math.random() * themeLib.primary.length)],
+      secondary: themeLib.secondary[Math.floor(Math.random() * themeLib.secondary.length)],
+      decorations: themeLib.decorations,
+    });
+    setIsAnimating(false);
+  }, 300);
+}, [theme]);
 
   const downloadCard = async () => {
     if (!cardRef.current) {
