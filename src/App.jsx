@@ -40,7 +40,7 @@ export default function App() {
 
   useEffect(() => {
   generate();
-}, [theme, generate]);
+}, [theme]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-pink-50 p-4 sm:p-8">
