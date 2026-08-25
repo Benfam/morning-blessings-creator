@@ -76,7 +76,7 @@ export default function App() {
 
             <div className="mb-8">
               <button onClick={() => setShowThemes(!showThemes)} className="w-full flex justify-between p-4 bg-gray-100 rounded-xl">
-                <span>Select Style</span>
+                <span>Select Style: {themes[theme]}</span>  
                 <ChevronDown className={`transform ${showThemes ? 'rotate-180' : ''}`} />
               </button>
               {showThemes && (
