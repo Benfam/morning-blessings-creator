@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { RotateCcw, Sparkles, Settings, Download, X, ChevronDown } from 'lucide-react';
 
 export default function MorningBlessingsCreator() {
@@ -233,19 +233,19 @@ export default function MorningBlessingsCreator() {
   };
 
   const generateMessage = useCallback(() => {
-  setIsAnimating(true);
-  setTimeout(() => {
-    const themeLib = messageLibrary[theme];
-    
-    setMessage({
-      greeting: themeLib.greetings[Math.floor(Math.random() * themeLib.greetings.length)],
-      primary: themeLib.primary[Math.floor(Math.random() * themeLib.primary.length)],
-      secondary: themeLib.secondary[Math.floor(Math.random() * themeLib.secondary.length)],
-      decorations: themeLib.decorations,
-    });
-    setIsAnimating(false);
-  }, 300);
-}, [theme]);
+    setIsAnimating(true);
+    setTimeout(() => {
+      const themeLib = messageLibrary[theme];
+      
+      setMessage({
+        greeting: themeLib.greetings[Math.floor(Math.random() * themeLib.greetings.length)],
+        primary: themeLib.primary[Math.floor(Math.random() * themeLib.primary.length)],
+        secondary: themeLib.secondary[Math.floor(Math.random() * themeLib.secondary.length)],
+        decorations: themeLib.decorations,
+      });
+      setIsAnimating(false);
+    }, 300);
+  }, [theme]);
 
   const downloadCard = async () => {
     if (!cardRef.current) {
@@ -305,7 +305,7 @@ export default function MorningBlessingsCreator() {
 
   useEffect(() => {
     generateMessage();
-  }, [theme]);
+  }, [generateMessage]);
 
   const colors = colorSchemes[customColor];
   const getThemeGradient = () => {
@@ -519,5 +519,3 @@ export default function MorningBlessingsCreator() {
     </div>
   );
 }
-
-Commit changes
