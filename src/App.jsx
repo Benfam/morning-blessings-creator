@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { RotateCcw, Sparkles, Settings, Download, X, ChevronDown } from 'lucide-react';
+import { RotateCcw, Settings, Download, X, ChevronDown } from 'lucide-react';
 
 export default function App() {
   const [theme, setTheme] = useState('cheerful');
@@ -40,7 +40,7 @@ export default function App() {
 
   useEffect(() => {
   generate();
-}, [theme]);
+}, [theme, generate]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-pink-50 p-4 sm:p-8">
